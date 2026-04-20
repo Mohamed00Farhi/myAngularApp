@@ -1,1 +1,15 @@
-<p>item works!</p>
+<div class="item-card">
+  
+  <div class="item-content">
+    <h3 class="item-name">{{ item.name }}</h3>
+    
+    <p class="item-description">{{ item.description }}</p>
+    
+    <div class="item-footer">
+      <div class="item-price">${{ item.price.toFixed(2) }}</div>
+      <div class="item-actions">
+        <button class="btn btn-primary" (click)="onAddToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

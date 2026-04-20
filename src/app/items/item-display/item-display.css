@@ -1,0 +1,50 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+}
+
+app-item {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  ul {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  ul {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  app-item {
+    max-width: 100%;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+}
