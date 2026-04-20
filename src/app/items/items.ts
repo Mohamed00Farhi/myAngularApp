@@ -9,4 +9,14 @@ import { ItemCreation } from './item-creation/item-creation';
   templateUrl: './items.html',
   styleUrl: './items.css',
 })
-export class Items {}
+export class Items {
+  addNewItemSelected = false;
+
+  onAddingNewItem() {
+    this.addNewItemSelected = true;
+  }
+
+  onCancel() {
+    this.addNewItemSelected = false;
+  }
+}

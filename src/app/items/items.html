@@ -1,3 +1,6 @@
 <app-item-basket></app-item-basket>
-<app-item-creation></app-item-creation>
+<button class="btn btn-secondary" (click)="onAddingNewItem()">add new Item</button>
+@if(addNewItemSelected) {
+  <app-item-creation (cancel)="onCancel()"></app-item-creation>
+}
 <app-item-display></app-item-display>

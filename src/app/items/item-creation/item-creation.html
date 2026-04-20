@@ -1,1 +1,54 @@
-<p>item-creation works!</p>
+<div class="form-overlay">
+  <div class="form-container">
+    <div class="form-header">
+      <h2>Create New Item</h2>
+      <p>Fill in the details below to add a new item</p>
+    </div>
+
+    <form class="item-form" #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Item Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          placeholder="Enter item name"
+          [(ngModel)]="name" 
+          name="name"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea 
+          id="description" 
+          placeholder="Enter item description" 
+          rows="4"
+          [(ngModel)]="description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="price">Price ($)</label>
+          <input 
+            type="number" 
+            id="price" 
+            placeholder="0.00" 
+            step="0.01"
+            [(ngModel)]="price"
+            name="price"
+            required
+          >
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-cancel" (click)="onCancelCreation()">Cancel</button>
+        <button type="submit" class="btn btn-submit" [disabled]="!form.valid">Create Item</button>
+      </div>
+    </form>
+  </div>
+</div>

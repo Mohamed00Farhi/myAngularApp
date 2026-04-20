@@ -1,5 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
 import { ItemType } from "./item.models";
+import { Item } from "./item/item";
 
 @Injectable({
     providedIn: 'root',
@@ -62,6 +63,11 @@ export class ItemsService {
     getTotalForItem(itemId: number) {
       const line = this.itemBasket.lines.find(line => line.itemId === itemId);
       return line ? line.quantity : 0;
+    }
+
+    addNewItem(newItem: ItemType) {
+      this.items.push(newItem);
+      this.saveDataToLocalStorage();
     }
 
     loadDataFromLocalStorage(): void {
