@@ -15,4 +15,8 @@ export class Item {
   onAddToCart() {
     this.itemsService.addItemToBasket(this.item);
   }
+
+  get totalAdded() {
+    return this.itemsService.getTotalForItem(this.item.id);
+  }
 }

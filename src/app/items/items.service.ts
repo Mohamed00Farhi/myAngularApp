@@ -59,6 +59,10 @@ export class ItemsService {
       this.saveDataToLocalStorage();
     }
 
+    getTotalForItem(itemId: number) {
+      const line = this.itemBasket.lines.find(line => line.itemId === itemId);
+      return line ? line.quantity : 0;
+    }
 
     loadDataFromLocalStorage(): void {
       try {

@@ -1,4 +1,9 @@
 <div class="item-card">
+    @if (totalAdded > 0) {
+  <div class="quantity-badge">
+    {{ totalAdded }}
+  </div>
+}
   
   <div class="item-content">
     <h3 class="item-name">{{ item.name }}</h3>
