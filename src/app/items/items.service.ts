@@ -32,8 +32,8 @@ export class ItemsService {
     this.loadDataFromLocalStorage();
   }
 
-  getItems(): ItemType[] {
-    return this.items;
+  getItems(keyText: string): ItemType[] {
+    return this.items.filter(item => item.name.toLowerCase().includes(keyText.toLowerCase()));
   }
 
     getItemById(id: number): ItemType | undefined {

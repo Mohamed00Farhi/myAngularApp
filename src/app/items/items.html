@@ -1,6 +1,16 @@
 <app-item-basket></app-item-basket>
-<button class="btn btn-secondary" (click)="onAddingNewItem()">add new Item</button>
+
+<div class="input-button-container">
+  <input 
+    type="text" 
+    class="search-input" 
+    placeholder="Search items..."
+    [(ngModel)]="searchTerm"
+  >
+  <button class="btn btn-secondary" (click)="onAddingNewItem()">add new Item</button>
+</div>
+
 @if(addNewItemSelected) {
   <app-item-creation (cancel)="onCancel()"></app-item-creation>
 }
-<app-item-display></app-item-display>
+<app-item-display [keyText]="searchTerm"></app-item-display>

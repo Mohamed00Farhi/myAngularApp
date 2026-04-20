@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Item } from '../item/item';
 import { ItemsService } from '../items.service';
 
@@ -9,9 +9,11 @@ import { ItemsService } from '../items.service';
   styleUrl: './item-display.css',
 })
 export class ItemDisplay {
+  @Input({required: true}) keyText!: string;
   itemsService = inject(ItemsService);
 
   get getItems() {
-    return this.itemsService.getItems();
+    console.log('Getting items for search term:', this.keyText);
+    return this.itemsService.getItems(this.keyText);
   }
 }
