@@ -9,27 +9,13 @@ import { ItemsService } from '../items.service';
 })
 export class ItemBasket {
   itemsService = inject(ItemsService);
-
-  itemBasket = {
-    lines: [
-      {
-        itemId: 1,
-        quantity: 2,
-      },
-      {
-        itemId: 2,
-        quantity: 1,
-      },
-    ],
-  };    
+ 
 
   get totalItems() {
-    return this.itemBasket.lines.reduce((total, line) => total + line.quantity, 0);
+    return this.itemsService.getTotalItems();
   }
 
   get totalPrice() {
-    return this.itemBasket.lines.reduce(
-      (total, line) => total + line.quantity * (this.itemsService.getItemById(line.itemId)?.price || 0), 
-      0);
+    return this.itemsService.getTotalPrice();
   }
 }

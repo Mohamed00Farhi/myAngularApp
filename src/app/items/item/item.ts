@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ItemType } from '../item.models';
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-item',
@@ -9,8 +10,9 @@ import { ItemType } from '../item.models';
 })
 export class Item {
   @Input({required: true}) item!: ItemType;
+  itemsService = inject(ItemsService);
 
   onAddToCart() {
-    console.log(`Adding item ${this.item.name} to basket`);
+    this.itemsService.addItemToBasket(this.item);
   }
 }
