@@ -1,1 +1,27 @@
-<p>item-basket works!</p>
+<div class="basket-container">
+  <div class="basket-card">
+    <div class="basket-header">
+      <h2>Shopping Basket</h2>
+    </div>
+    
+    <div class="basket-content">
+      <div class="basket-stats">
+        <div class="stat-item">
+          <div class="stat-label">Total Items</div>
+          <div class="stat-value">{{ totalItems }}</div>
+        </div>
+        
+        <div class="stat-divider"></div>
+        
+        <div class="stat-item">
+          <div class="stat-label">Total Price</div>
+          <div class="stat-value price">${{ totalPrice.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="basket-actions">
+      <button class="btn btn-primary">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
